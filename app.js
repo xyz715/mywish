@@ -18,6 +18,9 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname,"/public")));
 // Middleware for handling form data
 app.use(methodOverride('_method'))
+app.get('/', (req, res) => {
+    res.redirect('/wish'); // Redirects the root URL to /wish
+});
 
 app.get('/wish', (req, res) => {
     res.render('index'); 
