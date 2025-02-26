@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 💖</title>
+    <link rel="stylesheet" href="surprise.css">
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio autoplay loop id="bg-music">
+        <source src="/assets/song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Slider Container -->
+    <div class="slider-container">
+        <!-- Left Arrow -->
+        <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+
+        <!-- Message Slides -->
+        <div class="slider">
+            <div class="slide active">
+                <h1>For You, My Special One 💕</h1>
+                <p>You light up my world like no one else. Thank you for being in my life! ✨</p>
+            </div>
+            <div class="slide">
+                <h1>You are Amazing 💖</h1>
+                <p>Your kindness, your laughter, and your presence make life beautiful! 🌸</p>
+            </div>
+            <div class="slide">
+                <h1>My Favorite Person 🥰</h1>
+                <p>Every moment with you is precious. You mean the world to me! 🌍💕</p>
+            </div>
+        </div>
+
+        <!-- Right Arrow -->
+        <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <form action="/gallery" method="GET">
+        <button class="para-btn">Read a Special Message</button>
+    </form>
+    
+
+    <script src="surprise.js"></script>
+</body>
+</html>

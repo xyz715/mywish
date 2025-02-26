@@ -1,0 +1,87 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ff4081;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Slider Container */
+/* Updated Slider Container */
+.slider-container {
+    position: relative;
+    width: 80%; /* Increased from 60% */
+    max-width: 900px; /* Ensures it doesn’t become too wide */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px; /* Increased padding for better spacing */
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Updated Message Text */
+.slide h1 {
+    font-size: 2.5rem; /* Bigger Heading */
+}
+.slide p {
+    font-size: 1.6rem; /* Bigger Text */
+    line-height: 1.8; /* Better Spacing */
+    padding: 20px;
+}
+
+
+/* Message Slides */
+.slide {
+    display: none;
+}
+.slide.active {
+    display: block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.left {
+    left: 10px;
+}
+.right {
+    right: 10px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.para-btn {
+    position: relative;
+    display: block;
+    margin: 50px auto 0 auto; /* Moves the button further down */
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    background: #6a0572; /* Matching your theme */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    left: 50px; /* Shifts it to the right */
+}
+
+.para-btn:hover {
+    background: #8e0e9a; /* Slightly lighter shade on hover */
+    transform: scale(1.1);
+}

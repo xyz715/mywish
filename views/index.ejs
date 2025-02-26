@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+
+    <h1 class="animate__animated animate__zoomIn animate__infinite">Happy Birthday, Viv🎀</h1>
+
+    <!-- Image Slider -->
+    <section class="slider-container">
+        
+        <div class="slider-images">
+            <div class="slider-img"><img src="/assets/picc1.jpg" alt="1"></div>
+            <div class="slider-img"><img src="/assets/picc2.jpg" alt="2"></div>
+            <div class="slider-img active"><img src="/assets/picc3.jpg" alt="3"></div>
+            <div class="slider-img"><img src="/assets/picc4.jpg" alt="4"></div>
+            <div class="slider-img"><img src="/assets/picc5.jpg" alt="5"></div>
+            <div class="slider-img"><img src="/assets/picc6.jpg" alt="6"></div>
+            
+        </div>
+
+        <div class="text-cards">
+            <div class="card tilt1">"You're the best person anyone could ask for!" 💖</div>
+            <div class="card tilt2">"Thank you for always being there for me!" 😊</div>
+            <div class="card tilt3">"You deserve all the happiness in the world!" 🎂</div>
+            <div class="card tilt4">"I’m so lucky to have you in my life!" 🌟</div>
+        </div>
+        
+       <!-- Redirect Button -->
+       <form action="/wishpage" method="GET">
+        <button type="submit" class="for-you-btn">Click For Surprises 🎁</button>
+    </form>
+    <div class="envelopes-container">
+        <div class="envelope" onclick="openEnvelope(1)">
+            <div class="flap"></div>
+            <div class="envelope-date"><i>03-07</i></div> <!-- Date on closed envelope -->
+            <div class="letter">
+                <p>"First time we Confessed! 🤗"</p>
+                <div class="letter-image">
+                <img src="/assets/confessed.jpg" alt="Memory 1">
+                </div>
+            </div>
+        </div>
+        <div class="envelope" onclick="openEnvelope(2)">
+            <div class="flap"></div>
+            <div class="envelope-date"><i>13-08</i></div> <!-- Date on closed envelope -->
+            <div class="letter">
+                <p>"My first gift you gave me! 😂"</p>
+                <div class="letter-image">
+                <img src="/assets/lipstick.jpg" alt="Memory 2">
+            </div>
+            </div>
+        </div>
+        <div class="envelope" onclick="openEnvelope(3)">
+            <div class="flap"></div>
+            <div class="envelope-date"><i>20-10</i></div> <!-- Date on closed envelope -->
+            <div class="letter">
+                <p>"A day I will never forget!Our first meet 💖"</p>
+                <div class="letter-image">
+                <img src="/assets/meet.jpg" alt="Memory 3">
+            </div>
+            </div>
+        </div>
+        <div class="envelope" onclick="openEnvelope(4)">
+            <div class="flap"></div>
+            <div class="envelope-date"><i>23-10</i></div> <!-- Date on closed envelope -->
+            <div class="letter">
+                <p>"the day u filled me with gifts! 😂"</p>
+                <div class="letter-image">
+                <img src="/assets/gift day.jpg" alt="Memory 4">
+            </div>
+            </div>
+        </div>
+        <div class="envelope" onclick="openEnvelope(5)">
+            <div class="flap"></div>
+            <div class="envelope-date"><i>18-01</i></div> <!-- Date on closed envelope -->
+            <div class="letter">
+                <p> "Our most special moment!Our first Movie 🎊"</p>
+               <div class="letter-image">
+                <img src="/assets/movie.jpg" alt="Memory 5">
+            </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="sadenvelopes-container">
+        <div class="sadenvelope" onclick="openSadEnvelope(1)">
+            <div class="sadflap"></div>
+            <div class="sadletter">
+                <p>"A moment I wished u stay(never want u to return home) 💔"</p>
+                <div class="letter-image">
+                    <img src="/assets/let go.jpg" alt="Sad Memory 1">
+                </div>
+            </div>
+        </div>
+        <div class="sadenvelope" onclick="openSadEnvelope(2)">
+            <div class="sadflap"></div>
+            <div class="sadletter">
+                <p>"The day i cried hard (starting days of my birthday month..it was really so hard for me but thanks for always being the shoulder i can lean on)"</p>
+                <div class="letter-image">
+                    <img src="/assets/i cried.jpg" alt="Sad Memory 2">
+                </div>
+            </div>
+        </div>
+        <div class="sadenvelope" onclick="openSadEnvelope(3)">
+            <div class="sadflap"></div>
+            <div class="sadletter">
+                <p>"The moment i felt so stubborned crying for that softtoy 💔 thanks for fulfilling my all likess "</p>
+                <div class="letter-image">
+                    <img src="/assets/softtoy.jpg" alt="Sad Memory 3">
+                </div>
+            </div>
+        </div>
+        <div class="sadenvelope" onclick="openSadEnvelope(4)">
+            <div class="sadflap"></div>
+            <div class="sadletter">
+                <p>"The day u cried a lot becuase of me so sorry viv but always realised "dard bhi tu sukoon bhi tu" 😞"</p>
+                <div class="letter-image">
+                    <img src="/assets/u cried.jpg" alt="Sad Memory 4">
+                </div>
+            </div>
+        </div>
+        <div class="sadenvelope" onclick="openSadEnvelope(5)">
+            <div class="sadflap"></div>
+            <div class="sadletter">
+                <p>"The most emotional moment for u:ur unexpected birthday celebration!"</p>
+                <div class="letter-image">
+                    <img src="/assets/bd.jpg" alt="Sad Memory 5">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ 
+    
+    <div class="slide-note">⬅️ Slide to See More Memories ➡️</div>
+
+    
+    
+    <script>
+    function openEnvelope(index) {
+    const envelope = document.getElementsByClassName("envelope")[index - 1];
+    envelope.classList.toggle("open");
+}
+
+function openSadEnvelope(index) {
+    const sadEnvelope = document.getElementsByClassName("sadenvelope")[index - 1];
+    sadEnvelope.classList.toggle("open");
+}
+
+</script>
+
+    </section>
+    <div class="music-note" id="music-note">🎵 Click anywhere to play a special song! 🎵</div>
+
+    <audio id="bg-music" autoplay loop>
+        <source src="/assets/kaun-disha-mein-leke-chala-from-nadiya-ke-paar_ePtRkD2M.mp3" type="audio/mp3">
+        
+    </audio>
+
+    <script>
+        document.addEventListener('click', () => {
+            document.getElementById('bg-music').play();
+        });
+        document.addEventListener('dblclick', () => {
+            document.getElementById('bg-music').pause();
+        });
+       
+    
+    </script>
+    <script>
+        document.addEventListener('click', () => {
+            document.getElementById('bg-music').play();
+            document.getElementById('music-note').style.opacity = "0"; // Hide the note
+            setTimeout(() => {
+                document.getElementById('music-note').style.display = "none"; // Remove it after fade
+            }, 500);
+        });
+    </script>
+    
+    
+    <script src="script.js"></script>
+    <script>
+    function createFloatingEmoji() {
+        const emoji = document.createElement('div');
+        emoji.innerHTML = ['🌸', '❤️', '✨'][Math.floor(Math.random() * 3)]; 
+        emoji.classList.add('floating-emoji');
+    
+        let x = Math.random() * window.innerWidth;
+        let y = window.innerHeight - 50; 
+        emoji.style.left = `${x}px`;
+        emoji.style.top = `${y}px`;
+    
+        document.body.appendChild(emoji);
+    
+        setTimeout(() => {
+            emoji.remove();
+        }, 3000); // Remove after floating
+    }
+    
+    setInterval(createFloatingEmoji, 1000);
+</script>
+<script>
+    function createBalloon() {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.innerHTML = "🎈 ,🎀"; // Balloon emoji
+
+        // Random position
+        let x = Math.random() * window.innerWidth;
+        balloon.style.left = `${x}px`;
+
+        document.body.appendChild(balloon);
+
+        // Remove balloon after animation
+        setTimeout(() => {
+            balloon.remove();
+        }, 6000);
+    }
+
+    // Generate balloons every 1.5 seconds
+    setInterval(createBalloon, 1500);
+</script>
+
+
+</body>
+</html>

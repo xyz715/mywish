@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    
+    <link rel="stylesheet" href="wish.css">
+</head>
+<body>
+    <div class="poetic-message">
+        "Each time you admire sarees on others, a little storm brews in my heart.
+You wished to see me draped in elegance, but my heart pouts in playful jealousy.
+Before the moment unfolds, prove your love—
+whisper ‘sorry’ ten times, and maybe… just maybe,
+I’ll let you steal a glance at what’s only meant for you."
+    </div>
+    
+    <div class="lock-container">
+        <span class="lock" id="lock">🔒</span>
+        <div class="unlock-text">Type "sorry" 10 times to unlock Each!</div>
+        <input type="text" id="sorryInput" placeholder="Type 'sorry' here...">
+        <p id="sorryCount">0/20</p>
+    </div>
+    
+    <div class="video-container">
+        <span class="video-overlay" id="overlay1">🎀</span>
+        <video id="video1" controls>
+            <source src="/assets/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <span class="video-overlay" id="overlay2">🎀</span>
+        <video id="video2" controls>
+            <source src="/assets/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="sweet-sorry">
+        "I know I troubled you a lot on your birthday, but it was only to make it extra special. 
+        So, a sweet sorry from my heart, and I hope this made you smile! 💖"
+    </div>
+    <div class="letters-container">
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+    </div>
+    
+    <div class="letters-container right">
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+        <div class="letter sorry-letter">SAY SORRY🥹</div>
+    </div>
+    <form action="/lastpage" method="GET">
+        <button type="submit" class="for-you-btn">Wait... there's ONE LAST thing! 🎁</button>
+    </form>
+    
+    <script>
+    
+    let sorryCount = 0;
+const sorryInput = document.getElementById("sorryInput");
+const lock = document.getElementById("lock");
+const video1 = document.getElementById("video1");
+const video2 = document.getElementById("video2");
+const sorryCountText = document.getElementById("sorryCount");
+const overlay1 = document.getElementById("overlay1");
+const overlay2 = document.getElementById("overlay2");
+const sorryLetters = document.querySelectorAll(".sorry-letter");
+
+sorryInput.addEventListener("input", function () {
+    if (sorryInput.value.toLowerCase() === "sorry") {
+        sorryCount++;
+        sorryCountText.textContent = `${sorryCount}/20`;
+        sorryInput.value = "";
+        lock.classList.add("shake");
+        setTimeout(() => lock.classList.remove("shake"), 500);
+
+        if (sorryCount % 2 === 0 && sorryCount / 2 <= sorryLetters.length) {
+            sorryLetters[sorryCount / 2 - 1].textContent = "HAPPYYY😝🥰";
+        }
+
+        if (sorryCount >= 10) {
+            video1.classList.add("unlocked");
+            overlay1.style.opacity = "0";
+        }
+        if (sorryCount >= 20) {
+            video2.classList.add("unlocked");
+            overlay2.style.opacity = "0";
+            lock.style.opacity = "0";
+            setTimeout(() => lock.style.display = "none", 500);
+        }
+    }
+});
+</script>
+
+</body>
+</html>

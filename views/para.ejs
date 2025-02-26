@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message</title>
+    <link rel="stylesheet" href="para.css">
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video autoplay loop muted class="bg-video">
+        <source src="/assets/bgvideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Main Container -->
+    <div class="message-container">
+        <h1>For You 💖</h1>
+
+        <!-- Lyrics Container (Scrollable) -->
+        <div class="lyrics-container" id="lyrics">
+            <p data-time="0">Happy Birthday Viv! 🎉❤️</p>
+            <p data-time="4">It’s been almost a year now… a year of love, a year of memories, a year of us.</p>
+            <p data-time="8">And yet, every single day feels like the first—every moment with you is special, new, and filled with warmth.</p>
+            <p data-time="12">A year ago, I was at my lowest. Completely broken, lost, and hopeless… मला खरंच काहीच उरल्यासारखं वाटत नव्हतं.</p>
+            <p data-time="18">I had stopped believing in love, in happiness, even in myself. But then you came into my life like a storm—</p>
+            <p data-time="24">filling all the empty spaces with your love, your madness, and your care.</p>
+            <p data-time="28">तू मला पुन्हा जगायला शिकवलंस. I had forgotten how to smile, how to dream, how to feel alive, but you changed everything.</p>
+            <p data-time="34">तुझ्या presence मुळे सगळं meaningful झालं. You held me when I couldn’t stand, you listened when I couldn’t speak, and you stayed when I expected everyone to leave.</p>
+            <p data-time="40">You became my strength, my support, my happiness.</p>
+            <p data-time="44">You have loved me beyond my limits, in ways no one else ever did.</p>
+            <p data-time="48">माझ्या प्रत्येक छोट्या छोट्या इच्छा पूर्ण केल्यास, कधी हसवत, कधी रडवत, पण नेहमी माझ्यासोबत राहिलास.</p>
+            <p data-time="54">The way you take care of me, the way you notice the smallest things about me—it melts my heart every single time.</p>
+            <p data-time="60">There are moments when you irritate me, when you hurt me without realizing it, but even in those moments, I know...</p>
+            <p data-time="66">at the end of the day, it’s you that I need. It’s only you.</p>
+            <p data-time="70">You are my safe place, my home.</p>
+            <p data-time="74">And I love everything about you—the way you laugh, the way you hold my hand, the way you get jealous even over silly things. 😆</p>
+            <p data-time="80">तुझं लहान मुलासारखं वागणं मला खूप आवडतं, पण काहीवेळा वाटतं की तुला थोडं maturity दाखवायला हवं—</p>
+            <p data-time="86">especially in front of others आणि कधी कधी माझ्यासमोरही.</p>
+            <p data-time="90">I want you to understand how precious everything you have is… how lucky you are, how lucky we are.</p>
+            <p data-time="96">Because not everyone gets a love like this, not everyone gets an ‘us’.</p>
+            <p data-time="100">I promise you—मी कधीही तुला सोडणार नाही.</p>
+            <p data-time="104">तुझ्या आयुष्यात जर कोणी नसतील, तरी मी असेन.</p>
+            <p data-time="108">When the world turns its back on you, I will stand beside you.</p>
+            <p data-time="112">When you fail, your failures will be mine too.</p>
+            <p data-time="116">And when you rise, your success will be my proudest moment.</p>
+            <p data-time="120">We are a team. Always.</p>
+            <p data-time="124">Life is unpredictable. कधी काय होईल सांगता येत नाही.</p>
+            <p data-time="128">But one thing I can promise is this—I will never stop loving you.</p>
+            <p data-time="132">I will never stop choosing you.</p>
+            <p data-time="136">कितीही भांडणं झाली, कितीही त्रास दिलास तरी शेवटी माझं मन फक्त तुलाच हवं असतं.</p>
+            <p data-time="142">So on your special day, I just want to say—thank you.</p>
+            <p data-time="146">Thank you for everything you’ve done for me,</p>
+            <p data-time="150">for loving me when I couldn’t love myself, for making me laugh, for making my life colorful again.</p>
+            <p data-time="156">And most importantly… Thank you for being YOU.</p>
+            <p data-time="160">Forever yours, with all my heart,</p>
+            <p data-time="164">मी. ❤️</p>
+        </div>
+
+        <!-- Audio Player -->
+        <audio id="audio" controls>
+            <source src="/assets/parasound.unknown" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Flashback Button -->
+        <form action="/gallery" method="GET">
+            <button class="back-btn">Want a flashback? Here it is!!</button>
+        </form>
+    </div>
+
+    <script>
+        // Synchronize text with audio
+        const audio = document.getElementById("audio");
+        const lyrics = document.querySelectorAll(".lyrics-container p");
+
+        audio.addEventListener("timeupdate", () => {
+            let currentTime = audio.currentTime;
+            
+            lyrics.forEach(p => {
+                let startTime = parseFloat(p.getAttribute("data-time"));
+                if (currentTime >= startTime) {
+                    p.style.color = "#ff4081"; // Highlight active text
+                } else {
+                    p.style.color = "#000"; // Reset previous ones
+                }
+            });
+        });
+    </script>
+</body>
+</html>

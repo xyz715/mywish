@@ -1,0 +1,528 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/assets/WhatsApp\ Image\ 2025-02-15\ at\ 09.56.11_eb4eb692.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    position: relative; /* Needed for overlay */
+}
+
+/* Adding an overlay for opacity effect */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5); /* Adjust opacity (0 = fully transparent, 1 = solid) */
+    z-index: -1; /* Keeps it behind the content */
+}
+
+/* Title Styling */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #ff4081;
+    font-size: 5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 4px 4px 10px rgba(255, 64, 129, 0.6);
+    padding-bottom: 10px;
+}
+
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    width: 1200px;
+    height: 800px; /* Increased height */
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: visible;
+    margin-top: 150px; /* Moves cards down */
+    left: -100px;
+}
+
+.slider-img {
+    position: absolute;
+    width: 480px;
+    height: 580px;
+    transition: all 2.5s ease-in-out;
+    cursor: pointer;
+    border-radius: 20px;
+    opacity: 0.5;
+    transform: scale(0.8);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.slider-img:hover {
+    transform: scale(1);
+    box-shadow: 0px 15px 30px rgba(255, 64, 129, 0.6);
+}
+/* Stacked Images */
+.slider-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/* Middle Image (Fully Visible) */
+.slider-img.active {
+    transform: scale(1);
+    z-index: 4;
+    opacity: 1;
+}
+
+/* First Left & Right Images (Slightly Bigger) */
+.slider-img.left {
+    transform: translateX(-150px) scale(0.9);
+    z-index: 3;
+    opacity: 0.7;
+}
+
+.slider-img.right {
+    transform: translateX(150px) scale(0.9);
+    z-index: 3;
+    opacity: 0.7;
+}
+
+/* Further Left & Right Images (Smaller & More Hidden) */
+.slider-img.hidden-left {
+    transform: translateX(-250px) scale(0.8);
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.slider-img.hidden-right {
+    transform: translateX(250px) scale(0.8);
+    z-index: 2;
+    opacity: 0.5;
+}
+
+/* Deepest Hidden Images (Almost Invisible) */
+.slider-img.far-left {
+    transform: translateX(-350px) scale(0.7);
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.slider-img.far-right {
+    transform: translateX(350px) scale(0.7);
+    z-index: 1;
+    opacity: 0.3;
+}
+
+/* Image Styling */
+.slider-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+@keyframes float {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-50px) scale(1.1); opacity: 0.8; }
+    100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+}
+
+.floating-emoji {
+    position: absolute;
+    font-size: 2rem;
+    color: #ff4081;
+    animation: float 3s infinite ease-in-out;
+    pointer-events: none;
+}
+.slider-img:hover {
+    box-shadow: 0px 15px 40px rgba(255, 64, 129, 0.7);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+@keyframes twinkle {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0.3; transform: scale(0.8); }
+}
+
+.firefly {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: gold;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+.text-cards {
+    position: absolute;
+    right:-10%;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* More space between cards */
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 25px 30px; /* Increased padding for bigger size */
+    width: 330px; /* Increased width */
+    border-radius: 15px;
+    font-size: 25px; /* Bigger text */
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, opacity 0.5s;
+    opacity: 0;
+}
+
+/* Different tilts for each card */
+.tilt1 { transform: rotate(-5deg); }
+.tilt2 { transform: rotate(8deg); }
+.tilt3 { transform: rotate(-10deg); }
+.tilt4 { transform: rotate(5deg); }
+
+/* Animation for appearing effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(80px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Delay appearance for each card */
+.card:nth-child(1) { animation: fadeIn 0.6s forwards 0.5s; }
+.card:nth-child(2) { animation: fadeIn 0.6s forwards 1s; }
+.card:nth-child(3) { animation: fadeIn 0.6s forwards 1.5s; }
+.card:nth-child(4) { animation: fadeIn 0.6s forwards 2s; }
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px; /* Adjust this value to move it further down */
+}
+
+.for-you-btn {
+    position: absolute;
+    right: -10%;
+    bottom: 90%;
+    padding: 20px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #ff4082;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect */
+.for-you-btn:hover {
+    background: #ff3333;
+    transform: scale(1.1);
+}
+
+
+.for-you-btn:active {
+    transform: scale(0.95);
+}
+.music-note {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    animation: float 3s infinite alternate;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateX(-50%) translateY(0); }
+    100% { transform: translateX(-50%) translateY(-10px); }
+}
+.balloon {
+    position: fixed;
+    bottom: -100px; /* Start below screen */
+    width: 50px;
+    height: 70px;
+    background: radial-gradient(circle at 50% 30%, #ff4d4d, #ff1a1a);
+    border-radius: 50%;
+    animation: floatUp 6s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    background: #555;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+    }
+}
+.envelopes-container {
+    position: fixed;
+    right: 20px;
+    top: 10%;
+    bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    width: 150px; /* Increases width */
+}
+
+
+.envelope {
+    width: 160px; /* Keep existing size */
+    height: 130px;
+    background: #d9534f;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Date on the closed envelope */
+.envelope .envelope-date {
+    position: absolute;
+    bottom: 15px; /* Adjust positioning */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+/* Ensure date disappears when envelope opens */
+.open .envelope-date {
+    display: none;
+}
+
+/* Keep the existing animation and styles */
+.envelope .flap {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: #b52b27;
+    top: 0;
+    clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+    transition: 0.5s;
+}
+
+.envelope .letter {
+    position: absolute;
+    width: 220px;
+    height: 190px;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+    left: -80px;
+    top: -90px;
+    border: 3px dashed #b52b27; /* Dashed Red Border */
+    outline: 4px solid rgba(255, 255, 255, 0.8); /* White Glow Outline */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft Shadow */
+}
+.envelope .letter .letter-image {
+    width: 140px; /* Square shape */
+    height: 120px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+    margin: 0 auto;
+}
+.envelope .letter img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fits perfectly */
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.sadenvelope .sadletter .letter-image {
+    width: 140px; /* Square shape */
+    height: 120px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+    margin: 0 auto;
+}
+.sadenvelope .sadletter img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fits perfectly */
+    border-radius: 5px;
+    justify-content: center;
+}
+
+
+/* Envelope opening effect */
+.open .flap {
+    transform: rotateX(180deg);
+}
+
+.open .letter {
+    opacity: 1;
+    transform: translateY(0);
+}
+.slide-note {
+    position: fixed;
+    left: 550px;
+    top: 85%;
+    transform: translateY(-50%);
+    background: rgba(255, 223, 186, 0.8);
+    padding: 12px 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #d9534f;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    animation: bounce 2s infinite;
+    white-space: nowrap;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-50%) translateX(0);
+    }
+    50% {
+        transform: translateY(-50%) translateX(-5px);
+    }
+}
+/* 💔 Sad Envelopes Container (Left Side) */
+.sadenvelopes-container {
+    position: fixed;
+    left: 25px; /* Positioning on the left */
+    top: 10%;
+    bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 22px;
+    width: 150px;/* Ensuring same spacing as the right-side envelopes */
+}
+
+/* 🖤 Individual Sad Envelope */
+.sadenvelope {
+    width: 190px;
+    height: 130px;
+    background: linear-gradient(to bottom, #550000, #990000);
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
+    border: 2px dashed rgba(255, 102, 102, 0.8); /* Broken-dashed effect */
+}
+
+/* 💔 Envelope Flap (Top Part - Broken) */
+.sadenvelope::before {
+    content: "💔";  /* Broken heart emoji */
+    position: absolute;
+    font-size: 24px; /* Adjust size */
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center it */
+}
+
+/* ⚡ Crack Effect */
+.sadenvelope::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    left: 50%;
+    top: 0;
+    transform: rotate(-12deg);
+}
+
+/* 📜 Letter Inside */
+.sadletter {
+    position: absolute;
+    width: 240px;
+    height: 200px;
+    background: #ffebeb;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    font-style: italic;
+    color: #990000;
+    font-weight: bold;
+    border: 1px dashed rgba(255, 102, 102, 0.8);
+    transform: translateY(50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 📩 Envelope Opens */
+.sadenvelope.open .sadletter {
+    opacity: 1;
+    transform: translateY(20%);
+}
+
+/* 🔥 Torn Paper Effect */
+.sadenvelope.torn {
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 75%, 60% 90%, 40% 100%, 0 80%);
+}
+

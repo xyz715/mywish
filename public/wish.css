@@ -1,0 +1,185 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ffdde1, #ee9ca7);
+
+    text-align: center;
+    overflow: hidden;
+}
+
+.poetic-message {
+    font-size: 28px;
+    font-weight: bold;
+    color: #d9534f;
+    margin-top: 50px;
+    padding: 20px;
+    max-width: 1500px;
+    background: rgba(255, 223, 186, 0.8);
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.lock-container {
+    margin-top: 30px;
+}
+
+.lock {
+    font-size: 100px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.lock.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+.unlock-text {
+    margin-top: 15px;
+    font-size: 38px;
+}
+
+.video-container video {
+    width: 100%; /* Stretch to full width of container */
+    height: 100%; /* Stretch to full height */
+    object-fit: cover; /* Ensures the video fills the space without distortion */
+    opacity: 0.4;
+    transition: opacity 0.5s;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center; /* Centers the videos horizontally */
+    align-items: center; /* Centers vertically */
+    gap: 120px; /* Adds spacing between videos */
+    margin-top: -80px;
+    position: relative;
+    width: 100%; /* Full width for proper alignment */
+    max-width: 1200px; /* Limit width */
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto; /* Centers the container */
+}
+
+
+.video-container video.unlocked {
+    opacity: 1;
+}
+
+#sorryInput {
+    width: 300px;
+    height: 60px;
+    font-size: 25px;
+    text-align: center;
+    border: 2px solid #d9534f;
+    border-radius: 5px;
+    margin-top:90px;
+}
+
+#sorryCount {
+    font-size: 40px;
+    font-weight: bold;
+    color: #d9534f;
+}
+
+.video-overlay {
+    position: absolute;
+    font-size: 150px;
+    color: red;
+    font-weight: bold;
+    opacity: 0.8;
+    text-align: center;
+    justify-content: center;
+    transition: opacity 0.5s;
+}
+
+#overlay1 { left: 22%; }
+#overlay2 { right: 22%; }
+
+.sweet-sorry {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d9534f;
+    text-align: center;
+    margin-top: 60px;
+    padding: 15px;
+    background: rgba(255, 223, 186, 0.8);
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.letters-container {
+    position: fixed;
+    top: 10%;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.letters-container.right {
+    left: auto;
+    right: 20px;
+}
+
+.letter {
+    width: 230px;
+    height: 130px;
+    background: #ffcccb;
+    color: #d9534f;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 90px;
+    border-radius: 10px;
+    border: 2px solid #d9534f;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.letter:hover {
+    transform: scale(1.1);
+}
+.for-you-btn {
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff4b5c, #ffad60);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 5px 15px rgba(255, 75, 92, 0.4);
+
+    /* Positioning at Top-Right */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.for-you-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 20px rgba(255, 75, 92, 0.6);
+}
