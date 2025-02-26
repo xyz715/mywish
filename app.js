@@ -47,3 +47,9 @@ app.get('/pic', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+app.use((req, res) => {
+    res.status(404).send("Page Not Found");
+});
+
+// ✅ Export app for Vercel
+module.exports = app;
